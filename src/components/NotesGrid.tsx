@@ -1,7 +1,11 @@
 import NoteCard from "./NoteCard";
 import type { NotesGridProps } from "../types/NotesGridProps";
 
-export default function NotesGrid({ notes, onDelete }: NotesGridProps) {
+export default function NotesGrid({
+  notes,
+  onDelete,
+  onEdit,
+}: NotesGridProps) {
   return (
     <div className="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3 lg:gap-7 justify-items-center">
       {notes.map((note) => (
@@ -16,6 +20,7 @@ export default function NotesGrid({ notes, onDelete }: NotesGridProps) {
             year: "numeric",
           })}
           onDelete={onDelete}
+          onEdit={onEdit}
         />
       ))}
     </div>
