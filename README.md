@@ -1,75 +1,109 @@
-# React + TypeScript + Vite
+# Think Board
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive note-taking app built with React and TypeScript. Users can create, view, edit, delete, and search notes, all connected to a REST API.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- View all notes in a responsive grid (1 column on mobile, 2 on tablet, 3 on desktop)
+- Create a new note with a title and description
+- Edit an existing note
+- Delete a note with a confirmation dialog
+- Search notes by title or description
+- Loading and error states
+- Mobile-friendly layout with a floating "+" button
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- [React](https://react.dev/) with [TypeScript](https://www.typescriptlang.org/)
+- [Vite](https://vite.dev/)
+- [Tailwind CSS](https://tailwindcss.com/) and [daisyUI](https://daisyui.com/)
+- [Axios](https://axios-http.com/)
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Prerequisites
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Node.js (v18 or later)
+- npm
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Installation
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+git clone https://github.com/NavidMostafaei2002/Think-Board.git
+cd Think-Board
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+### Environment Variables
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Create a `.env` file in the project root:
 
 ```
+VITE_API_URL=https://thinkboard.codewithmmd.ir
+```
+
+### Run the App
+
+```bash
+npm run dev
+```
+
+Then open the local URL shown in the terminal (usually `http://localhost:5173`).
+
+To open the app on your phone, run `npm run dev -- --host` and use the Network address on the same Wi-Fi.
+
+## Project Structure
+
+```
+src/
+├── api/          # API requests (Axios)
+├── assets/       # Fonts
+├── components/   # UI components (Header, NoteCard, NotesGrid, modals, ...)
+├── hooks/        # Custom hooks (useNotes)
+├── styles/       # Global styles
+├── types/        # TypeScript types
+├── App.tsx
+└── main.tsx
+```
+
+## API
+
+The app uses the Think Board REST API:
+
+| Method | Endpoint         | Description       |
+| ------ | ---------------- | ----------------- |
+| GET    | `/api/notes`     | Get all notes     |
+| GET    | `/api/notes/:id` | Get a single note |
+| POST   | `/api/notes`     | Create a note     |
+| PUT    | `/api/notes/:id` | Update a note     |
+| DELETE | `/api/notes/:id` | Delete a note     |
+
+A note has the following shape:
+
+```json
+{
+  "id": "string",
+  "title": "string",
+  "content": "string",
+  "createdAt": "string",
+  "updatedAt": "string"
+}
+```
+
+## Screenshots
+
+![Desktop view](screenshots/desktop.png)
+![Mobile view](screenshots/mobile.png)
+![Darkmode view](screenshots/darkmode.png)
+
+## What I Learned
+
+- Building reusable components and passing data with props
+- Managing state with `useState` and fetching data with `useEffect`
+- Extracting logic into a custom hook
+- Connecting a frontend to a REST API with Axios
+- Building a responsive UI with Tailwind CSS
+
+## Author
+
+[Navid Mostafaei](https://github.com/NavidMostafaei2002)

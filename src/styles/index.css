@@ -1,0 +1,55 @@
+@import "tailwindcss";
+@plugin "daisyui";
+/* Fonts */
+@font-face {
+  font-family: Inter;
+  src: url("../assets/fonts/Inter_28pt-Regular.ttf");
+  font-weight: 300;
+}
+@font-face {
+  font-family: Inter;
+  src: url("../assets/fonts/Inter_28pt-Medium.ttf");
+  font-weight: 400;
+}
+@font-face {
+  font-family: Inter;
+  src: url("../assets/fonts/Inter_28pt-Bold.ttf");
+  font-weight: 500;
+}
+
+@theme {
+  --font-main: "Inter", sans-serif;
+}
+
+/* Colors */
+:root {
+  --bg: #f7f6f2;
+  --text: #1b1b1f;
+  --text-muted: #55555f;
+  --primary: #3b4bdb;
+  --primary-hover: #2533ac;
+  --danger: #b3261e;
+  --note-bg: #fff8b8;
+
+  --rounded-primary: 0.5rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #141418;
+    --text: #f1f0eb;
+    --text-muted: #a3a3ad;
+    --primary: #6b7bff;
+    --primary-hover: #8a97ff;
+    --danger: #f25cb3;
+    --note-bg: #5d4d0f;
+  }
+}
+
+/* Base styles */
+body {
+  min-width: 280px;
+  font-family: "Inter", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
