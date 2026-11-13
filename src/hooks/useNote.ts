@@ -19,10 +19,8 @@ export function useNotes() {
     try {
       await createNote(note);
 
-      // دریافت مجدد تمام نوت‌ها از سرور
       const updatedNotes = await getNotes();
 
-      // آپدیت کردن State
       setNotes(updatedNotes);
 
       return true;
