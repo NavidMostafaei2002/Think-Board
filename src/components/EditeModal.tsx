@@ -49,7 +49,7 @@ export default function EditModal({
         )}
 
         <div className="modal-action">
-          <button type="button" className="btn" onClick={onCancel}>
+          <button type="button" className="btn border-0" onClick={onCancel}>
             Cancel
           </button>
           <button

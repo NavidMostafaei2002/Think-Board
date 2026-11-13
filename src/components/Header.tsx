@@ -1,8 +1,6 @@
-interface HeaderProps {
-  onAdd: () => void;
-}
+import type { HeaderProps } from "../types/HeaderProps";
 
-export default function Header({ onAdd }: HeaderProps) {
+export default function Header({ onAdd, onSearch }: HeaderProps) {
   return (
     <div className="navbar">
       <div className="navbar-start">
@@ -11,7 +9,11 @@ export default function Header({ onAdd }: HeaderProps) {
         </a>
       </div>
       <div className="navbar-end gap-4">
-        <button className="cursor-pointer text-(--text)">
+        <button
+          onClick={onSearch}
+          aria-label="Search notes"
+          className="cursor-pointer text-(--text)"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -37,7 +39,7 @@ export default function Header({ onAdd }: HeaderProps) {
         <button
           onClick={onAdd}
           aria-label="New note"
-          className="btn size-10 rounded-full border-0 bg-(--primary) p-0! text-xl text-(--bg) hover:bg-(--primary-hover) lg:hidden"
+          className="btn fixed right-5 bottom-6 z-40 flex size-14 items-center justify-center rounded-full border-0 bg-(--primary) p-0! text-3xl leading-none text-(--bg) shadow-lg hover:bg-(--primary-hover) lg:hidden"
         >
           +
         </button>

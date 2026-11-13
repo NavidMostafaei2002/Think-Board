@@ -63,12 +63,12 @@ export default function NoteFormModal({
         )}
 
         <div className="modal-action">
-          <button type="button" className="btn" onClick={onCancel}>
+          <button type="button" className="btn border-0" onClick={onCancel}>
             {cancelLabel}
           </button>
           <button
             type="submit"
-            className="btn border-0 bg-(--primary)! text-white"
+            className="btn border-0 bg-(--primary)! text-white cursor-pointer "
             disabled={!canSave}
           >
             {submitLabel}
