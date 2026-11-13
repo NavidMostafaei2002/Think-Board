@@ -6,7 +6,7 @@ import type { Note, NoteInput } from "../types/note";
 //   baseURL: `${import.meta.env.VITE_API_URL}/api`,
 // });
 const api = axios.create({
-  baseURL: import.meta.env.DEV ? "/api" : `${import.meta.env.VITE_API_URL}/api`,
+  baseURL: "/api",
 });
 
 // Get notes
